@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 from bs4 import BeautifulSoup
 from PIL import Image, UnidentifiedImageError
 from io import BytesIO
@@ -110,7 +111,8 @@ def process_pages(url_file, output_excel):
         return
 
 url_file = 'urls.txt'
-output_excel = 'resultados.xlsx'
+fecha_hora_actual = datetime.now().strftime('%Y%m%d_%H%M%S')
+output_excel = f'resultados_{fecha_hora_actual}.xlsx'
 
 if os.path.exists(output_excel):
     try:
